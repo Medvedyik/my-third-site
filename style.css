@@ -1,0 +1,195 @@
+/* Mobile First стили (для смартфонов) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    width: 100%;
+}
+
+header {
+    background: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+header img {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+nav {
+    background: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+nav a {
+    padding: 8px 0;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+nav a:last-child {
+    border-bottom: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.content-block {
+    background: #f0f0f0;
+    padding: 15px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* На мобильных: таблица выше ссылок */
+#table {
+    order: 1;
+}
+
+#links {
+    order: 2;
+}
+
+#form {
+    order: 3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #e0e0e0;
+}
+
+form {
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    margin: 8px 0 4px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 80px;
+}
+
+.radio-group {
+    margin: 8px 0 10px;
+}
+
+.radio-group label {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.radio-group input[type="radio"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+.checkbox-group {
+    margin: 8px 0 10px;
+}
+
+.checkbox-group label {
+    display: inline-block;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Планшеты (min-width: 768px) */
+@media screen and (min-width: 768px) {
+    body {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    nav {
+        flex-direction: row;
+    }
+    
+    nav a {
+        margin-right: 15px;
+        border-bottom: none;
+        padding: 0;
+    }
+    
+    /* Возвращаем естественный порядок блоков */
+    #table {
+        order: 0;
+    }
+    
+    #links {
+        order: 0;
+    }
+    
+    #form {
+        order: 0;
+    }
+}
+
+/* Десктопы (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+    .content-block {
+        padding: 20px;
+    }
+    
+    nav a {
+        margin-right: 25px;
+        font-size: 1.1em;
+    }
+}
