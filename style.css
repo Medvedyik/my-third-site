@@ -1,4 +1,8 @@
 /* Mobile First стили (для смартфонов) */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -13,7 +17,6 @@ header {
     display: flex;
     align-items: center;
     width: 100%;
-    box-sizing: border-box;
 }
 
 header img {
@@ -28,13 +31,14 @@ nav {
     display: flex;
     flex-direction: column;
     width: 100%;
-    box-sizing: border-box;
 }
 
 nav a {
     padding: 8px 0;
     text-align: center;
     border-bottom: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
 }
 
 nav a:last-child {
@@ -46,7 +50,6 @@ main {
     flex-direction: column;
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
 }
 
 .content-block {
@@ -54,7 +57,6 @@ main {
     padding: 15px;
     margin-bottom: 20px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 /* На мобильных: таблица выше ссылок */
@@ -70,10 +72,18 @@ main {
     order: 3;
 }
 
+/* Контейнер для таблицы с горизонтальной прокруткой на мобильных */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 10px 0;
+    min-width: 600px; /* Минимальная ширина для таблицы */
 }
 
 th, td {
@@ -104,7 +114,6 @@ select {
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
-    box-sizing: border-box;
 }
 
 textarea {
@@ -148,7 +157,6 @@ footer {
     padding: 10px;
     text-align: center;
     width: 100%;
-    box-sizing: border-box;
 }
 
 /* Планшеты (min-width: 768px) */
@@ -156,6 +164,7 @@ footer {
     body {
         max-width: 1000px;
         margin: 0 auto;
+        padding: 0 10px;
     }
     
     nav {
@@ -179,6 +188,15 @@ footer {
     
     #form {
         order: 0;
+    }
+    
+    /* На планшетах и десктопах убираем принудительную прокрутку таблицы */
+    .table-container {
+        overflow-x: visible;
+    }
+    
+    table {
+        min-width: auto;
     }
 }
 
