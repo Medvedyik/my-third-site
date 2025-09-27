@@ -22,6 +22,10 @@ header, nav, .content-block, footer {
     background: #f0f0f0;
 }
 
+footer {
+    text-align: center;
+}
+
 /* Mobile First стили (для смартфонов) */
 header {
     display: flex;
@@ -49,6 +53,33 @@ nav a {
 
 nav a:last-child {
     border-bottom: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* На мобильных: таблица выше ссылок */
+#table {
+    order: 1;
+}
+
+#links {
+    order: 2;
+}
+
+#form {
+    order: 3;
+}
+
+/* Отступ для списка ссылок */
+#links ul {
+    padding-left: 20px;
+}
+
+#links ol {
+    padding-left: 20px;
 }
 
 /* Контейнер для таблицы с горизонтальной прокруткой на мобильных */
@@ -131,19 +162,6 @@ input[type="submit"] {
     margin-top: 10px;
 }
 
-/* На мобильных: таблица выше ссылок */
-#table {
-    order: 1;
-}
-
-#links {
-    order: 2;
-}
-
-#form {
-    order: 3;
-}
-
 /* Планшеты (min-width: 768px) */
 @media screen and (min-width: 768px) {    
     nav {
@@ -157,8 +175,12 @@ input[type="submit"] {
     }
     
     /* Возвращаем естественный порядок блоков */
+    main {
+        display: block; /* Убираем flex для десктопной версии */
+    }
+    
     #table, #links, #form {
-        order: 0;
+        order: 0; /* Сбрасываем order для больших экранов */
     }
 }
 
