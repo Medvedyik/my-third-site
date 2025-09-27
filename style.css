@@ -1,22 +1,31 @@
-/* Mobile First стили (для смартфонов) */
+/* Единая модель расчета размеров */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
     line-height: 1.4;
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
-header {
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ БЛОКОВ */
+header, nav, .content-block, footer {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
     background: #f0f0f0;
-    padding: 10px;
+}
+
+/* Mobile First стили (для смартфонов) */
+header {
     display: flex;
     align-items: center;
-    width: 100%;
 }
 
 header img {
@@ -26,11 +35,8 @@ header img {
 }
 
 nav {
-    background: #f0f0f0;
-    padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 nav a {
@@ -45,33 +51,6 @@ nav a:last-child {
     border-bottom: none;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 10px;
-}
-
-.content-block {
-    background: #f0f0f0;
-    padding: 15px;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-/* На мобильных: таблица выше ссылок */
-#table {
-    order: 1;
-}
-
-#links {
-    order: 2;
-}
-
-#form {
-    order: 3;
-}
-
 /* Контейнер для таблицы с горизонтальной прокруткой на мобильных */
 .table-container {
     width: 100%;
@@ -83,7 +62,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin: 10px 0;
-    min-width: 600px; /* Минимальная ширина для таблицы */
+    min-width: 600px;
 }
 
 th, td {
@@ -152,21 +131,21 @@ input[type="submit"] {
     margin-top: 10px;
 }
 
-footer {
-    background: #f0f0f0;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
+/* На мобильных: таблица выше ссылок */
+#table {
+    order: 1;
+}
+
+#links {
+    order: 2;
+}
+
+#form {
+    order: 3;
 }
 
 /* Планшеты (min-width: 768px) */
-@media screen and (min-width: 768px) {
-    body {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 10px;
-    }
-    
+@media screen and (min-width: 768px) {    
     nav {
         flex-direction: row;
     }
@@ -178,31 +157,14 @@ footer {
     }
     
     /* Возвращаем естественный порядок блоков */
-    #table {
+    #table, #links, #form {
         order: 0;
-    }
-    
-    #links {
-        order: 0;
-    }
-    
-    #form {
-        order: 0;
-    }
-    
-    /* На планшетах и десктопах убираем принудительную прокрутку таблицы */
-    .table-container {
-        overflow-x: visible;
-    }
-    
-    table {
-        min-width: auto;
     }
 }
 
 /* Десктопы (min-width: 1024px) */
 @media screen and (min-width: 1024px) {
-    .content-block {
+    header, nav, .content-block, footer {
         padding: 20px;
     }
     
